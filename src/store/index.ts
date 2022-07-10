@@ -1,9 +1,12 @@
-import { applyMiddleware, createStore } from 'redux';
 import { rootReducer } from './reducers';
-import { composeWithDevTools } from '@redux-devtools/extension';
 import thunk from 'redux-thunk';
+import { configureStore } from '@reduxjs/toolkit';
 
-export const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
+export const store = configureStore({
+	reducer: rootReducer,
+	devTools: true,
+	middleware: [thunk],
+});
 
 export type TAppState = ReturnType<typeof store.getState>;
 export type TAppDispatch = typeof store.dispatch;

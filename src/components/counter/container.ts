@@ -1,7 +1,7 @@
 import { connect, ConnectedProps } from 'react-redux';
 import { Counter } from './counter';
 import { TAppState } from '../../store';
-import { customDecrement, customIncrement, decrement, increment } from '../../store/reducers/counter';
+import { increment, decrement, customIncrement, customDecrement } from '../../store/reducers/counter';
 
 const mapStateToProps = (state: TAppState) => ({
 	counter: state.counter.value,
