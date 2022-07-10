@@ -1,6 +1,6 @@
 import { rootReducer } from './reducers';
-import thunk from 'redux-thunk';
-import { configureStore } from '@reduxjs/toolkit';
+import thunk, { ThunkDispatch } from 'redux-thunk';
+import { AnyAction, configureStore } from '@reduxjs/toolkit';
 
 export const store = configureStore({
 	reducer: rootReducer,
@@ -9,4 +9,4 @@ export const store = configureStore({
 });
 
 export type TAppState = ReturnType<typeof store.getState>;
-export type TAppDispatch = typeof store.dispatch;
+export type TAppDispatch = ThunkDispatch<TAppState, void, AnyAction>;
